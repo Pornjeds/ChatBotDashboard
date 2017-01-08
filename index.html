@@ -61,6 +61,18 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2" id="notification-area">
+          <!-- <div class="alert alert-success" role="alert">
+            <strong>Well done!</strong> You successfully read this important alert message.
+          </div> -->
+          <!-- <div class="alert alert-danger" role="alert">
+            <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+          </div> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
             <li class="disabled"><a href="#">Reports</a></li>
@@ -84,24 +96,15 @@
           <h1 class="page-header">Dashboard</h1>
           <div class="row placeholders">
             <div class="col-md-12 placeholder">
-              <form>
+              <form id="keyword-form">
                 <div class="col-md-4 form-group">
-                  <label for="inputKeyword">Keyword</label>
                   <input type="text" class="form-control" id="inputKeyword" placeholder="Keyword">
                 </div>
                 <div class="col-md-4 form-group">
-                  <label for="inputResponse">Response</label>
                   <input type="text" class="form-control" id="inputResponse" placeholder="Response">
                 </div>
-                <!-- <div class="col-md-4 form-group">
-                  <label for="inputResponse">Type</label>
-                  <select class="form-control" placeholder="Type" id="inputType">
-                  <option>Equal</option>
-                  <option>Contains</option>
-                </select>
-                </div> -->
-                <div class="col-md-12 form-group">
-                  <button type="submit" class="btn btn-default">Submit</button>
+                <div class="col-md-4 form-group">
+                  <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
           </div>
