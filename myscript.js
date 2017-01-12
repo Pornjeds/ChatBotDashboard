@@ -11,11 +11,12 @@ var database = firebase.database();
 //Render Data
 renderTable();
 
-function writeKeywordData(keyword, response) {
+function writeKeywordData(keyword, response, compare) {
 	keyRef = firebase.database().ref('keywords/');
 	keyRef.push({
 		key: keyword,
-		response: response
+		response: response,
+		compare: compare
 	});
 }
 
@@ -23,9 +24,9 @@ function renderTable(){
 	var keywordArray = new Array();
 	var tableBody = '<thead>\
 	                <tr>\
-	                  <th>No.</th>\
-	                  <th>Keyword</th>\
 	                  <th>Response</th>\
+					  <th>Compare</th>\
+					  <th>Keyword</th>\
 	                </tr>\
 		              </thead>\
 		              <tbody>';
@@ -45,9 +46,16 @@ function renderTable(){
 				console.log(akey + ':' + aValue);
 
 				if(akey === 'key'){
-					tableBody = tableBody + '<tr><td>' + i + '.</td><td>'+ aValue + '</td>'
+					tableBody = tableBody + '<td>'+ aValue + '</td>'
 				}else if(akey === 'response'){
 					tableBody = tableBody + '<td>' + aValue + '</td></tr>'
+				}else if(akey === 'compare'){
+					if(aValue == 1){
+						tableBody = tableBody + '<tr><td>Equal</td>'
+					}else if(aValue == 2){
+						tableBody = tableBody + '<tr><td>Contains</td>'
+					}
+					
 				}
 			});
 			i++;
@@ -68,7 +76,8 @@ $( "#keyword-form" ).submit(function( event ) {
   var $form = $( this );
   var key = $form.find("input[placeholder='Keyword']").val();
   var response = $form.find("input[placeholder='Response']").val();
+  var compare = $form.find("select[placeholder='Compare']").val();
 
-  writeKeywordData(key, response);
+  writeKeywordData(key, response, compare);
   renderTable();
 });

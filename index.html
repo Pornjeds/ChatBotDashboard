@@ -97,13 +97,19 @@
           <div class="row placeholders">
             <div class="col-md-12 placeholder">
               <form id="keyword-form">
-                <div class="col-md-4 form-group">
+                <div class="col-md-3 form-group">
                   <input type="text" class="form-control" id="inputKeyword" placeholder="Keyword">
                 </div>
-                <div class="col-md-4 form-group">
+                <div class="col-md-3 form-group">
                   <input type="text" class="form-control" id="inputResponse" placeholder="Response">
                 </div>
-                <div class="col-md-4 form-group">
+				<div class="col-md-3 form-group">
+					<select class="form-control" id="inputCompare" placeholder="Compare">
+					  <option value="1">Equal</option>
+					  <option value="2">Contains</option>
+					</select>
+                </div>
+                <div class="col-md-3 form-group">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
@@ -115,8 +121,8 @@
             <table class="table table-striped keyword-table" id="keyword-table">
               <thead>
                 <tr>
-                  <th>No.</th>
-                  <th>Keyword</th>
+                  <th>Compare</th>
+				  <th>Keyword</th>
                   <th>Response</th>
                 </tr>
               </thead>
